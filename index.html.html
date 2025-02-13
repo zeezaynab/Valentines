@@ -93,7 +93,7 @@
 <body>
     <div class="container">
         <div class="gif-container">
-            <img id="mainGif" src="file:///C:/Users/Zainab/Desktop/Valentines/askingOut.gif" alt="Valentine's GIF">
+            <img id="mainGif" src="images/askingOut.gif" alt="Valentine's GIF">
         </div>
         <h1 id="mainQuestion">Will You Be My Valentine?</h1>
         <div id="newText">Yay omw to hug you! 🏃♀️💨</div>
@@ -112,11 +112,18 @@
         const mainQuestion = document.getElementById('mainQuestion');
         const newText = document.getElementById('newText');
 
-        // Original GIF path
-        let currentGif = "file:///C:/Users/Zainab/Desktop/Valentines/images/askingOut.gif";
+        // GIF configuration
+        const gifs = {
+            initial: "images/askingOut.gif",
+            please: "images/please2.gif",
+            yay: "images/yay.gif"
+        };
+
+        // Initialize with first GIF
+        mainGif.src = gifs.initial;
 
         yesBtn.addEventListener('click', () => {
-            mainGif.src = "file:///C:/Users/Zainab/Desktop/Valentines/yay.gif";
+            mainGif.src = gifs.yay;
             mainQuestion.style.display = 'none';
             newText.style.display = 'block';
             document.querySelector('.buttons').style.display = 'none';
@@ -124,14 +131,14 @@
         });
 
         noBtn.addEventListener('mouseover', () => {
-            mainGif.src = "file:///C:/Users/Zainab/Desktop/Valentines/please2.gif";
+            mainGif.src = gifs.please;
             const randomX = Math.random() * 200 - 100;
             const randomY = Math.random() * 200 - 100;
             noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
         });
 
         noBtn.addEventListener('mouseout', () => {
-            mainGif.src = currentGif;
+            mainGif.src = gifs.initial;
         });
 
         noBtn.addEventListener('click', () => {
