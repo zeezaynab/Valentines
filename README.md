@@ -116,7 +116,7 @@
         const gifs = {
             initial: "images/askingOut.gif",
             please: "images/please2.gif",
-            yay: "images/yay.gif"
+            yay: "images/yay-Copy.gif"
         };
 
         // Initialize with first GIF
